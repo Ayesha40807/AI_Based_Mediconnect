@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEDICINE ASSISTANCE SYSTEM </title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://t4.ftcdn.net/jpg/01/18/42/59/240_F_118425925_n2GZJR42P1ai0p3qYmNe375LCd6kQ9R4.jpg') center right fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    header {
+      
+      color: rgba(13, 4, 109, 1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color:white;
+      color: black;
+      padding: 10px;
+      text-align: center;
+     
+    }
+   /* .nav-button{
+      border: black;
+      border-width: 1px;
+      border-style: solid;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: white;
+
+    }*/
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+      position: relative;
+    }
+
+    nav a:hover::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: black;
+    }
+
+.container {
+  display: flex;
+  gap: 20px;
+  margin-top: 155px;
+  margin-left: 190px;
+}
+
+.square {
+  display: inline-block;
+  width: 300px;
+  /* White with transparency */
+  background-color: rgba(255, 255, 255, 0.5); /* White with transparency */
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  vertical-align: top;
+}
+
+.square-image {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.square-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+
+.square p {
+  color: #333;
+}
+   
+    
+    .sec-p1{
+    width: 633px;
+    color: rgba(13, 4, 109, 1);
+    position: absolute;
+    top: 250px;
+    left: 193px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 40px;
+    opacity: 1;
+    text-align: left;
+    }
+
+    .sec-p2{
+    width: 556px;
+    color: rgba(104, 116, 224, 1);
+    position: absolute;
+    top: 370px;
+    left: 193px;
+    font-family: Inter;
+    font-weight: Regular;
+    font-size: 24px;
+    opacity: 1;
+    text-align: left;
+}
+    
+
+    .search-container {
+      max-width: 800px;
+      position: absolute;
+      top: 480px;
+      left: 193px;
+      margin: 20px auto;
+      text-align: left;
+      width: 556px;
+      
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      padding: 10px;
+    }
+    footer{
+      color: rgba(13, 4, 109, 1);
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-button" href="register" onclick="toggleForm('registerForm')">Register</a>
+    <a href="{% url 'login' %}" onclick="toggleForm('loginForm')">Login</a>
+    <a href="{%url 'inquiry_page'%}">Enquiry</a>
+    <a href="#">Language</a>
+  </nav>
+
+<header>
+  <div>
+    <h1>Medicine Assistance System</h1>
+    <h4>Empowering you with medication information</h4>
+  </div>
+</header>
+
+
+
+<section >
+  <p class="sec-p1">Welcome to Medicine Assistance System
+     
+</p>
+<br>
+<div class="container">
+  <div class="square">
+      <img src="https://p.kindpng.com/picc/s/150-1503949_computer-icons-user-profile-male-profile-icon-png.png" alt="Patient Image" class="square-image"><br>
+      <b>Patient</b>
+      <p>As a patient schedule your medication, get your updated medication information from doctor.</p>
+  </div>
+  <div class="square">
+      <img src="https://png.pngtree.com/png-vector/20191130/ourmid/pngtree-doctor-icon-circle-png-image_2055257.jpg" alt="Doctor Image" class="square-image"><br>
+      <b>Doctor</b>
+      <p>As a doctor add patient, manage your patient, send visit appointment and see collection reports.</p>
+  </div>
+</div>
+  
+</section>
+
+
+
+
+
+<footer>
+  <p>&copy; 2024 Medicine Assistance System. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleForm(formId) {
+    const forms = document.querySelectorAll('.form-container');
+    forms.forEach(form => {
+      if (form.id === formId) {
+        form.style.display = 'block';
+      } else {
+        form.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script src="https://mediafiles.botpress.cloud/882784d8-68ce-45bb-b26e-a452096bddd8/webchat/config.js" defer></script>
+</html>
