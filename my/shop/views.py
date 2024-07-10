@@ -16,6 +16,8 @@ from django.urls import reverse_lazy
 from datetime import date,datetime,timedelta
 from django.template.loader import render_to_string
 from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from .models import Visit, CustomUser
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -344,33 +346,27 @@ def delete_patient(request,id):
 def email_template(request):
   return render(request,'email_template.html')
 
+
 def n_patients(request):
     today = date.today()
     patients = Visit.objects.filter(visit_date__lt=today)
+
     count = 0
     for patient in patients:
         nextVisitDate = patient.visit_date + timedelta(days=patient.next_visit)
         notificationDate = nextVisitDate - timedelta(days=1)
-
-        print(f"Patient ID: {patient.id}, Visit Date: {patient.visit_date}, Next Visit Date: {nextVisitDate}, Notification Date: {notificationDate}, Today: {today}")
         
         if notificationDate == today:
             subject=f'Doctor next visit'
             msg=render_to_string('email_template.html',{'next_visit':nextVisitDate,'patient':patient})
-            print(f"Rendered Email: {msg}")
-
             email_from=settings.EMAIL_HOST_USER
-            recipient_list=[patient.patient_email,]
+            recipient_list=[patient.patient_email(),]
             mail=EmailMessage(subject,msg,email_from,recipient_list)
             mail.content_subtype  ="html"
-
-            try:
-                mail.send()
-                print(f"Email sent to: {patient.patient_email}")
-                count += 1
-            except Exception as e:
-                # Debug: Print exception if sending fails
-                print(f"Failed to send email to: {patient.patient_email}, Error: {str(e)}")
+            mail.send()
+            count+=1
+           
+        
     return render(request, 'n_patients.html', {
         'patients': patients,
         'count': count

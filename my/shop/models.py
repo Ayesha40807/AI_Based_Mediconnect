@@ -21,6 +21,7 @@ class Patient(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(null=True, blank=True)
     age = models.IntegerField(default=0)
+    
     GENDER_CHOICES = (
         ('male', 'Male'),
         ('female', 'Female'),

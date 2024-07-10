@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v4cc9**ugz8s-xf^m%+qii7iurrps)dqukcv-r#t(%f%+(wtoj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh','127.0.0.1','192.168.102.26']
 
 
 # Application definition
@@ -86,7 +86,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -133,13 +132,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+#setting.py 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
-EMAIL_HOST_USER='ayeshawasif40807@gmail.com'
-EMAIL_HOST_PASSWORD='sore yloa cgik nooi'
+EMAIL_HOST_USER='prasannkhamkar03@gmail.com'
+EMAIL_HOST_PASSWORD='zwub flze aunh xmja'
 EMAIL_USE_TLS=True
 
-import os
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build','static')
+
